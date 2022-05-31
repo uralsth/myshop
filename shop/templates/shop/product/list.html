@@ -31,6 +31,8 @@ Products
       <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}" alt="" />
     </a>
     <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+    <!-- <br> -->
+    <!-- <a href="{{ product.get_absolute_url }}">{{ product.creator }}</a> -->
     <br>
       ${{ product.price }}
   </div>

@@ -9,7 +9,7 @@ class Cart(object):
         Initialize the cart.
         """
         self.session = request.session
-        cart =self.session.get(settings.CART_SESSION_ID)
+        cart = self.session.get(settings.CART_SESSION_ID)
         if not cart:
             # save an empyt cart in the session
             cart = self.session[settings.CART_SESSION_ID] = {}
@@ -27,6 +27,7 @@ class Cart(object):
             self.cart[product_id]['quantity'] = quantity
         else:
             self.cart[product_id]['quantity'] += quantity
+        self.save()
 
     def save(self):
         # mark the session as "modified" to make sure it gets saved

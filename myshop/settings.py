@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
-from django.conf.global_settings import MEDIA_URL
+from django.conf.global_settings import EMAIL_BACKEND, MEDIA_URL
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -133,3 +133,4 @@ MEDIA_URL = os.path.join(BASE_DIR, 'media/')
 
 CART_SESSION_ID = config('CART_SESSION_ID')
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

@@ -151,3 +151,7 @@ BRAINTREE_CONF = braintree.Configuration(
     BRAINTREE_PRIVATE_KEY
 )
 
+# Redis settings
+REDIS_HOST = config('R_HOST')
+REDIS_PORT = config('R_PORT')
+REDIS_DB = config('R_DB')

@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
-from django.conf.global_settings import EMAIL_BACKEND, MEDIA_URL, STATIC_ROOT
+from django.conf.global_settings import EMAIL_BACKEND, LOGIN_REDIRECT_URL, LOGIN_URL, MEDIA_URL, STATIC_ROOT
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'account',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.postgres',
@@ -155,3 +156,8 @@ BRAINTREE_CONF = braintree.Configuration(
 REDIS_HOST = config('R_HOST')
 REDIS_PORT = config('R_PORT')
 REDIS_DB = config('R_DB')
+
+# Authentication ettings
+LOGIN_REDIRECT_URL = 'shop:dashboard'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'

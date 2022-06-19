@@ -1,9 +1,14 @@
 from django.shortcuts import get_object_or_404, render
+# from django.contrib.auth.decorators import login_required
 from .models import Category, Product
 from cart.forms import CartAddProductForm
 from .recommender import Recommender
 
 # Create your views here.
+
+# @login_required
+def dashboard(request):
+    return render(request, 'shop/dashboard.html', {'section': 'dashboard'})
 
 def product_list(request, category_slug=None):
     category = None

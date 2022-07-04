@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
-from django.conf.global_settings import EMAIL_BACKEND, LOGIN_REDIRECT_URL, LOGIN_URL, MEDIA_URL, STATIC_ROOT
+from django.conf.global_settings import AUTHENTICATION_BACKENDS, EMAIL_BACKEND, LOGIN_REDIRECT_URL, LOGIN_URL, MEDIA_URL, STATIC_ROOT
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -161,3 +161,8 @@ REDIS_DB = config('R_DB')
 LOGIN_REDIRECT_URL = 'shop:dashboard'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'account.authentication.EmailAuthBackend',
+]

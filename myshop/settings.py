@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'coupons',
 
     'social_django',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [

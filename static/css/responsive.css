@@ -1,0 +1,28 @@
+
+/* for lg screen */
+
+@media screen and (max-width : 968px){
+    html{
+      font-size: 55%;
+    }
+    .hero-section .hero-container{
+      flex-direction: column;
+    }
+    .counter{
+      justify-content: space-evenly;
+    }
+  }
+  
+  @media screen and (min-width : 1200px) {
+        html{
+          font-size: 85%;
+        }
+        .hero-container .right-logo img{
+          width: 500px;
+        }
+        .login button,
+.signup button {
+  width: 80px;
+  
+}
+}

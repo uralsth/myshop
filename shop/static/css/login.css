@@ -1,0 +1,116 @@
+#hero-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+.login-container{
+    min-height: 700px;
+    min-width: 400px;
+    background: #f3eef2;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.login-container .slogon{
+    text-align: center;
+    margin-top: 3rem;
+}
+.login-container .slogon h4{
+    font-size: 2.4rem;
+    color: rgb(100, 96, 96);
+    letter-spacing: 0.3rem;
+    margin-bottom: 0.8rem;
+}
+.login-container .slogon h6{
+    font-size: 1.3rem;
+    color: rgb(106, 106, 106);
+    margin-bottom: 2.6rem;
+}
+.login-container .form-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.login-container .form-container form{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.login-container .form-container form input{
+    height: 45px;
+    width: 300px;
+    border-radius: 1rem;
+    border: none;
+    outline: none;
+    padding: 0rem 1rem;
+    margin: 1.2rem 0rem;
+
+}
+.login-container .form-container form > a{
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: flex-end;
+    color: rgb(104, 104, 104);
+}
+.login-container .form-container form > a:hover{
+    text-decoration: underline;
+
+}
+.login-container .form-container form input:nth-of-type(3){
+    background-color: #f16969;
+    color: white;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+.login-container .form-container form input:nth-of-type(3):hover{
+    cursor: pointer;
+    opacity: 0.9;
+}
+.login-container .form-container form .text-center{
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 0.5rem 0rem;
+    color: rgb(101, 100, 100);
+}
+.login-container .form-container form .loginwith{
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0rem;
+}
+.login-container .form-container form .loginwith .same{
+    padding: 1rem;
+    border: 2px solid rgb(211, 121, 121);
+    margin: 0rem 1rem;
+    border-radius: 0.7rem;
+    cursor: pointer;
+
+    
+}
+.login-container .form-container form .loginwith .same a i {
+    font-size: 3rem;
+    color: white;
+}
+.login-container .form-container form .loginwith .same a{
+    color: #DB4437;
+}
+.login-container .form-container form .loginwith .same:hover{
+    opacity: 0.9;
+}
+.login-container .form-container form .not-register{
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+.login-container .form-container form .loginwith  .google{
+    border-color: #DB4437;
+    color: white;
+    background-color: #DB4437;
+}
+.login-container .form-container form .loginwith  .facebook{
+    border-color: #3b5998;
+    color: white;
+    background: #3b5998;
+}

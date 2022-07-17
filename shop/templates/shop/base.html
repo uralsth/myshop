@@ -1,37 +1,89 @@
 {% load static %}
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>{% block title %}My Shop{% endblock %}</title>
-  <link rel="stylesheet" href="{% static "css/base.css" %}">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- custom css link -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <!-- fontawasome icons link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+
+    <!-- custom responsive design link -->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}"/>
+      <!-- Login css link -->
+    <link rel="stylesheet" href="{% static 'css/login.css' %}"/>
+      <!-- Register link -->
+    <link rel="stylesheet" href="{% static 'css/register.css' %}"/>
+    <!-- custom css link recovery pass -->
+    <link rel="stylesheet" href="{% static 'css/recoverypass.css' %}" />
+
+
+    <title>Art Hub</title>
+  </head>
   <body>
-    <div id="header">
-      <a class="logo" href="/">My shop</a>
-    </div>
-    <div id="subheader">
-      <div class="cart">
-	{% with total_items=cart|length %}
-	{% if total_items > 0 %}
-	Your cart:
-	<a href="{% url "cart:cart_detail" %}">
-	  {{ total_items }} item{{ total_items|pluralize }},
-	  ${{ cart.get_total_price }}
-	</a>
-	{% else %}
-	Your cart is empty.
-	{% endif %}
-	{% endwith %}
-	{% if request.user.is_authenticated %}
-	Hello {{ request.user.first_name }},
-	<a href="{% url "logout" %}">Logout</a>
-	{% else %}
-	<a href="{% url "login" %}">Log-in</a>
-	{% endif %}
+    <!-- Navbar start -->
+    <!-- <div class="hideNav" id="hideNav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      
+    </div> -->
+    <header class="nev-container">
+      <div class="threeDot">
+        <!-- <i class="fa-solid fa-bars"></i> -->
+        <span style="font-size:1.7rem;cursor:pointer" onclick="openNav()">&#9776;</span>
       </div>
-    </div>
-    {% if messages %}
+      <div class="navMenu">
+        <div class="logo">
+          <a href="{% url "shop:dashboard" %}">ArtHub.</a>
+        </div>
+        <div class="navItem">
+          <div class="search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <div class="heart">
+            <i class="fa-regular fa-heart"></i>
+          </div>
+          <div class="basket">
+            <i class="fa-solid fa-basket-shopping"></i>
+          <div class="cart">
+        	{% with total_items=cart|length %}
+	        {% if total_items > 0 %}
+	        <a href="{% url "cart:cart_detail" %}">
+	        {{ total_items }} item{{ total_items|pluralize }},
+	        ${{ cart.get_total_price }}
+	        </a>
+	        {% else %}
+	        0 item
+	        {% endif %}
+	        {% endwith %}
+          </div>
+
+	  {% if request.user.is_authenticated %}
+          <div class="logout">
+            <a href="{% url "logout" %}">
+              <button>Logout</button>
+            </a>
+          </div>
+	  {% else %}
+          <div class="login">
+            <a href="{% url "login" %}">
+              <button>Login</button>
+            </a>
+          </div>
+          <div class="signup">
+            <a href="{% url "register" %}">
+              <button>SignUp</button>
+            </a>
+          </div>
+	        {% endif %}
+        </div>
+      </div>
+
+      {% if messages %}
     <ul class="messages">
       {% for message in messages %}
       <li class="{{ message.tags }}">
@@ -41,9 +93,64 @@
       {% endfor %}
     </ul>
     {% endif %}
-    <div id="content">
+    </header>
+
+    <!-- home section start -->
+
+    <section class="hero-section" id="hero-section">
+      <div class="socialMedia" id="socialMedia">
+        <div class="explore">
+          <a href="#"><i class="fa-solid fa-globe"></i></a>
+        </div>
+        <div class="socialLinks" >
+          <div class="insta">
+            <a href="#">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+          </div>
+          <div class="linkedIn">
+            <a href="#">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+          </div>
+          <div class="tweeter">
+            <a href="#">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+          </div>
+          <div class="facebook">
+            <a href="#">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-container" id="hero-container">
       {% block content %}
       {% endblock %}
-    </div>
+      </div>
+    </section>
+
+    <!-- footer of the page  -->
+
+    <footer class="footer-container">
+      <div class="footer-left">
+        <h4>
+          CopyRight &#169; 2022 <span>ArtHub</span>.
+        </h4>
+        <span>All Right reserved .</span>
+      </div>
+      <div class="footer-right">
+        <ul class="link-menu">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Privacy</a></li>
+
+        </ul>
+      </div>
+    </footer>
+      
+    <script src="{% static 'js/logic.js' %}"></script>
   </body>
 </html>

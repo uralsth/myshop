@@ -1,13 +1,37 @@
 {% extends "shop/base.html" %}
 
-{% block title %}Create an account{% endblock %}
+{% block title %}ArtHub - Register{% endblock %}
 
 {% block content %}
-<h1>Create an account</h1>
-<p>Please, sign up using the following form:</p>
-<form method="post" id="" action="">
-  {{ user_form.as_p }}
-  {% csrf_token %}
-  <p><input type="submit" name="" value="Create my account" /></p>
-</form>
+<div class="register-container">
+  <div class="slogon">
+    
+  </div>
+  <div class="form-container">
+    <form method="post" id="" action="">
+      {{ user_form.as_p }}
+      {% csrf_token %}
+      <input type="submit" value="Register"/>
+	
+      <hr/>
+      <span class="text-center">Or Register With</span>
+      <hr/>
+      <div class="loginwith">
+	<div class="same google">
+	  <a href="#">
+	    <i class="fa-brands fa-google"></i>
+	  </a>
+	</div>
+	<div class="same facebook">
+	  <a href="#">
+	    <i class="fa-brands fa-facebook"></i>
+	  </a>
+	</div>
+      </div>
+      <div class="not-login">
+	<span>Already have an account ? <a href="{% url "login" %}">Login.</a></span>
+      </div>
+    </form>
+  </div>
+</div>
 {% endblock %}

@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
-from django.conf.global_settings import AUTHENTICATION_BACKENDS, EMAIL_BACKEND, LOGIN_REDIRECT_URL, LOGIN_URL, MEDIA_URL, STATIC_ROOT
+from django.conf.global_settings import ALLOWED_HOSTS, AUTHENTICATION_BACKENDS, EMAIL_BACKEND, LOGIN_REDIRECT_URL, LOGIN_URL, MEDIA_URL, STATIC_ROOT
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -22,15 +22,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-from decouple import config
+from decouple import config, Csv
 SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(' ') 
-
-
+# ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split('') 
+# ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=lambda v: [s.strip() for s in v.split(',')])
 # Application definition
 
 INSTALLED_APPS = [
